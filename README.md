@@ -99,6 +99,6 @@ com.example.solicitudes
 * Manejo global de errores (`@ControllerAdvice`)
 * Seguridad con Spring Security (JWT)
 * Versionado de la API (`/api/v1`)
-* Uso de Value Objects (DNI, Amount)
+* Uso de Value Objects (DNI, importe)
 
 ---
