@@ -1,0 +1,156 @@
+openapi: 3.0.3
+info:
+  title: API Solicitudes
+  description: API REST para gestionar solicitudes de préstamos bancarios.
+  version: 0.1.0
+servers:
+  - url: 'http://localhost:8080'
+tags:
+  - name: Solicitudes
+    description: Endpoints para gestionar las solicitudes
+paths:
+  /api/solicitudes:
+    get:
+      tags:
+        - Solicitudes
+      summary: Obtiene todas las solicitudes
+      operationId: getAllRequests
+      responses:
+        200:
+          description: Obtiene todas las solicitudes con éxito
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/LoanResponse"
+    post:
+      tags:
+        - Solicitudes
+      summary: Crea una nueva solicitud
+      operationId: createRequest
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateLoanData"
+      responses:
+        200:
+          description: Crea una solicitud con éxito
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoanResponse"
+  /api/solicitudes/{id}:
+    get:
+      tags:
+        - Solicitudes
+      summary: Obtiene la solicitud con el id especificado
+      operationId: getRequestById
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      responses:
+        200:
+          description: Obtiene la solicitud con éxito
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoanResponse"
+    put:
+      tags:
+        - Solicitudes
+      summary: Modifica la solicitud con el id especificado
+      operationId: updateRequest
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+            example: 1
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateLoanData"
+      responses:
+        200:
+          description: Modifica la solicitud con éxito
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/LoanResponse"
+
+components:
+  schemas:
+    CreateLoanData:
+      type: object
+      properties:
+        customerName:
+          type: string
+          example: Carlos Sánchez
+        amount:
+          type: integer
+          example: 200,00
+        badge:
+          type: string
+          example: Euros
+        dni:
+          type: string
+          example: 12345678W
+        createdAt:
+          type: string
+          example: 01/01/2026
+    UpdateLoanData:
+      type: object
+      properties:
+        customerName:
+          type: string
+          example: Carlos Sánchez
+        amount:
+          type: integer
+          example: 200,00
+        badge:
+          type: string
+          example: Euros
+        dni:
+          type: string
+          example: 12345678W
+        state:
+          type: string
+          example: Pending
+        createdAt:
+          type: string
+          example: 01/01/2026
+    LoanResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        customerName:
+          type: string
+          example: Carlos Sánchez
+        amount:
+          type: number
+          example: 200
+        badge:
+          type: string
+          example: Euros
+        dni:
+          type: string
+          example: 12345678W
+        state:
+          type: string
+          example: Pending
+        createdAt:
+          type: string
+          example: 01/01/2026
+  
