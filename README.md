@@ -79,7 +79,7 @@ com.example.solicitudes
 * **Dominio independiente** de Spring y JPA.
 * **Repositorios desacoplados** mediante interfaces de dominio.
 * **MapStruct** para mapeo entre dominio, entidades y DTOs.
-* **Lombok** para evitar código repetitivo
+* **Lombok** para evitar código repetitivo.
 * Persistencia con **H2 + JPA** como implementación sencilla e intercambiable.
 
 ---
