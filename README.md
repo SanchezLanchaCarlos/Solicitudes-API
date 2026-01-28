@@ -94,8 +94,8 @@ com.example.solicitudes
 
 ### Técnicas / arquitecturales
 
-* Tests unitarios de dominio y casos de uso con JUnit
-* Tests de integración con Mockito
+* Tests unitarios de dominio y casos de uso con JUnit y Mockito
+* Tests de integración
 * Manejo global de errores (`@ControllerAdvice`)
 * Seguridad con Spring Security (JWT)
 * Versionado de la API (`/api/v1`)
